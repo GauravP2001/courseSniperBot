@@ -2,3 +2,4 @@ discord.py
 requests
 apscheduler
 asyncio
+psycopg2-binary
