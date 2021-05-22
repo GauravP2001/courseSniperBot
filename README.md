@@ -16,4 +16,4 @@
 ## Finding the Course (*main.py*)
   - A function called "check_courses" gets the indexes of the open sections and runs a loop that searches for all of the indexes in the database
   - If a match is found, a notification is sent in the discord channel and the found index is removed from the database
-  - The function runs ever **10 seconds** 
+  - The function runs every **10 seconds** 
