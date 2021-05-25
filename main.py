@@ -62,7 +62,7 @@ async def check_courses():
             if row[0] == index:
                 sectionsFound.append(index)
                 logger.info(f"Found index: {row[0]}")
-                await client.get_channel(841918517972172804).send(f"Found Index: {index}")
+                await client.get_channel(os.environ.get("CHANNEL_ID")).send(f"Found Index: {index}")
 
 
     for index in sectionsFound:
