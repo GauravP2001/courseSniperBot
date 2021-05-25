@@ -21,9 +21,9 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 conn = psycopg2.connect(DATABASE_URL, sslmode="require")
 cur = conn.cursor()
 
-with conn:
+# with conn:
     # cur.execute("CREATE TABLE coursesToBeFound (index VARCHAR primary key);")
-    cur.execute("INSERT INTO coursesToBeFound (index) VALUES (%s)", ("00150",))
+    # cur.execute("INSERT INTO coursesToBeFound (index) VALUES (%s)", ("00150",))
     # cur.execute("DELETE FROM coursesToBeFound where index = %s", ("00150",))
     # cur.execute("SELECT * from coursesToBeFound;")
     # for row in cur:
@@ -62,7 +62,7 @@ async def check_courses():
             if row[0] == index:
                 sectionsFound.append(index)
                 logger.info(f"Found index: {row[0]}")
-                await client.get_channel(os.environ.get("ID")).send(f"Found Index: {index}")
+                await client.get_channel(os.environ.get("CHANNEL_ID")).send(f"Found Index: {index}")
 
 
     for index in sectionsFound:
