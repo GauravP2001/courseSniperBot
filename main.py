@@ -44,12 +44,13 @@ async def addCourse(ctx, arg):
         cur.execute("INSERT INTO coursesToBeFound (index) VALUES (%s)", (arg,))
 
 async def check_courses():
+    logger.info("Searching")
     url = "https://sis.rutgers.edu/soc/api/openSections.json?year=2021&term=9&campus=NB"
 
     try:
         dataJSON = requests.get(url).json()
     except Exception as e:
-        logger.info(e)
+        logger.error(e)
 
         return
 
@@ -61,7 +62,7 @@ async def check_courses():
             if row[0] == index:
                 sectionsFound.append(index)
                 logger.info(f"Found index: {row[0]}")
-                await client.get_channel(841918517972172804).send(f"Found Index: {index}")
+                await client.get_channel(os.environ.get("ID")).send(f"Found Index: {index}")
 
 
     for index in sectionsFound:
