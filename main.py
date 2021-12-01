@@ -45,7 +45,7 @@ async def addCourse(ctx, arg):
 
 async def check_courses():
     logger.info("Searching")
-    url = "https://sis.rutgers.edu/soc/api/openSections.json?year=2021&term=9&campus=NB"
+    url = "https://sis.rutgers.edu/soc/api/openSections.json?year=2022&term=1&campus=NB"
 
     try:
         dataJSON = requests.get(url).json()
